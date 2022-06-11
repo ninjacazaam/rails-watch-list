@@ -14,7 +14,7 @@ puts "Generating new Movies database"
 40.times do
   movie = Movie.create!(
     title: Faker::Movie.unique.title,
-    overview: Faker::Lorem.paragraph ,
+    overview: Faker::Lorem.paragraph,
     poster_url: Faker::LoremFlickr.image(size: "75x175", search_terms: ['movies']),
     rating: rand(0..10)
   )
