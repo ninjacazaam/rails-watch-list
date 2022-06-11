@@ -15,7 +15,7 @@ puts "Generating new Movies database"
   movie = Movie.create!(
     title: Faker::Movie.unique.title,
     overview: Faker::Lorem.paragraph,
-    poster_url: Faker::LoremFlickr.image(size: "75x175", search_terms: ['movies']),
+    poster_url: Faker::LoremFlickr.image(search_terms: ['movies']),
     rating: rand(0..10)
   )
   puts "Added: #{movie.id}. #{movie.title}!"

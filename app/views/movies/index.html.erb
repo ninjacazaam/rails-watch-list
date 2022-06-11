@@ -1,0 +1,11 @@
+<h1>All movies!</h1>
+
+<% @movies.each do |movie| %>
+  <div class="card-product">
+  <%= image_tag "#{movie.poster_url}", alt: "#{movie.title}" %>
+    <div class="card-body">
+      <h5 class="card-title"><%= movie.title %></h5>
+      <p class="card-text"><%= "#{movie.overview}" %></p>
+    </div>
+  </div>
+<% end %>
