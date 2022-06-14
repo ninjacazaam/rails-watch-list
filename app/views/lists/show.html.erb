@@ -1,13 +1,23 @@
 <h1><%= "#{@list.name}" %></h1>
 
+<%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+
 <p>Bookmarks:</p>
 <% @bookmarks.each do |bookmark| %>
-  <div class="card">
-    <p><%= bookmark.movie.title %>
-    <%= link_to "x",
-              bookmark_path(bookmark),
-              method: :delete,
-              data: { confirm: "Are you sure you want to delete #{bookmark.movie.title}?" } %></p>
+  <div class="card d-flex flex-row">
+    <div class="p-2">
+      <p><%= bookmark.movie.title %></p>
+      <ul>
+        <li class="small"><%= bookmark.movie.overview[0, 80] %>...</li>
+      </ul>
+    </div>
+    <div class="p-2 border-left-2  align-self-center">
+      <p>"<%= bookmark.comment %>"</p>
+    </div>
+        <%= link_to "x",
+                  bookmark_path(bookmark),
+                  method: :delete,
+                  data: { confirm: "Are you sure you want to delete #{bookmark.movie.title}?" } %>
   </div>
 <% end %>
 
